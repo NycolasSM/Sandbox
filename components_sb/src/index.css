@@ -1,10 +1,10 @@
 :root {
   --pastel-1: #92507f;
-  --pastel-2: #6e4e65;
-  --pastel-23: #4f4653;
-  --pastel-3: #314e63;
+  --pastel-2: #805373;
+  --pastel-23: #54495e;
+  --pastel-3: #345268;
   --pastel-4: #2f4653;
-  --pastel-5:  #222830;
+  --pastel-5:  #252c35;
   --pastel-6: #12121a;
   --pastel-7: #151320;
 }
@@ -12,11 +12,15 @@
 html, body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  sans-serif;
 }
 
 body {
-  background-color: red;
-
   background-image: radial-gradient(
     var(--pastel-1),
     var(--pastel-2),
@@ -34,9 +38,9 @@ body {
 
 @keyframes move {
   from {
-    background-position: 0%;
+    background-position: 10%;
   }
   to {
-    background-position: 50% 100%;
+    background-position: 40% 100%;
   }
 }

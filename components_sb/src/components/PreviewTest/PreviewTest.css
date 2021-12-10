@@ -1,0 +1,9 @@
+.previewTest {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  width: 820px;
+  height: 440px;
+  margin: 20px auto;
+}
