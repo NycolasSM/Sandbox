@@ -1,0 +1,17 @@
+.cardTilt {
+  margin: 30px auto;
+  width: 580px;
+  height: 380px;
+  border-radius: 12px;
+  background-color: rgba(206, 206, 206, 0.644);
+  box-shadow: 0 5px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 8px 8px 15px rgba(0,0,0,0.5);
+
+  opacity: 0;
+  transition: all ease 0.6s;
+}
+
+.cardTilt.ShowAnim {
+  opacity: 100;
+  transition: ease all 0.6s;
+}

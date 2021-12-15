@@ -1,12 +1,12 @@
 :root {
-  --pastel-1: #92507f;
-  --pastel-2: #805373;
-  --pastel-23: #54495e;
-  --pastel-3: #345268;
-  --pastel-4: #2f4653;
-  --pastel-5:  #252c35;
-  --pastel-6: #12121a;
-  --pastel-7: #151320;
+  --pastel-1: #853c70;
+  --pastel-2: #643460;
+  --pastel-3: #54495e;
+  --pastel-4: #344f63;
+  --pastel-5: #2f4653;
+  --pastel-6:  #252c35;
+  --pastel-7: #12121a;
+  --pastel-8: #312519;
 }
 
 html, body {
@@ -24,12 +24,12 @@ body {
   background-image: radial-gradient(
     var(--pastel-1),
     var(--pastel-2),
-    var(--pastel-23),
     var(--pastel-3),
     var(--pastel-4),
     var(--pastel-5),
     var(--pastel-6),
-    var(--pastel-7)
+    var(--pastel-7),
+    var(--pastel-8)
   );
   min-height: 100vh;
   background-size: 600% 500%;
@@ -38,9 +38,9 @@ body {
 
 @keyframes move {
   from {
-    background-position: 10%;
+    background-position: 1%;
   }
   to {
-    background-position: 40% 100%;
+    background-position: 50% 100%;
   }
 }
