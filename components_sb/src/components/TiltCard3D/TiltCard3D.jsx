@@ -19,7 +19,7 @@ const TiltCard3D = () => {
   const options = {
     scale: 1,
     speed: 2500,
-    max: 5,
+    max: 2,
     glare: true,
     "max-glare": 0.1
   };

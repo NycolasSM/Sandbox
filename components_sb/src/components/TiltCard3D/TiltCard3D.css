@@ -1,16 +1,15 @@
 .cardTilt {
   margin: 30px auto;
-  width: 580px;
-  height: 380px;
+  width: 45vw;
+  height: 55vh;
   border-radius: 12px;
   background-color: rgba(206, 206, 206, 0.644);
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.2);
   box-shadow: 8px 8px 15px rgba(0,0,0,0.5);
 
-  opacity: 0;
+  opacity: 1;
 
-  animation: appear 2s forwards;
-  animation-fill-mode: forwards;
+  animation: appear 2.6s ease;
 }
 
 .card3D {
@@ -29,6 +28,6 @@
 
 
 @keyframes appear {
-  0% {opacity: 0}
-  100% {opacity: 1}
+  0% {opacity: 0; transform: scale(95%)}
+  100% {opacity: 1; transform: scale(100%)}
 }
