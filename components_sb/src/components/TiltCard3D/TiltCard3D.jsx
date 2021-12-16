@@ -4,8 +4,6 @@ import './TiltCard3D.css';
 
 const TiltCard3D = () => {
 
-  const [showElementAnim, setShowElmentAnim] = useState(0)
-
   function Tilt(props) {
     const { options, ...rest } = props;
     const tilt = useRef(null);
@@ -17,20 +15,6 @@ const TiltCard3D = () => {
 
     return <div ref={tilt} {...rest} />;
   }
-
-  const delay = ms => new Promise(res => setTimeout(res, ms));
-
-  const yourFunction = async () => {
-    await delay(1000);
-    setShowElmentAnim(100)
-  
-    await delay(5000);
-    console.log("Waited an additional 5s");
-  };
-
-  yourFunction()
-
-
 
   const options = {
     scale: 1,
@@ -60,9 +44,11 @@ const TiltCard3D = () => {
 
   return (
     <>
-      <Tilt className="cardTilt" style={{opacity: `${showElementAnim}`}} options={options}>
-        <div style={{color: "black"}}>
-          Testando
+      <Tilt className="cardTilt" options={options}>
+        <div className='card3D'>
+          <div>
+            Card Test
+          </div>
         </div>
       </Tilt>
     </>
