@@ -19,7 +19,7 @@ const TiltCard3D = () => {
   const options = {
     scale: 1,
     speed: 2500,
-    max: 2,
+    max: 3,
     glare: true,
     "max-glare": 0.1
   };
@@ -46,8 +46,23 @@ const TiltCard3D = () => {
     <>
       <Tilt className="cardTilt" options={options}>
         <div className='card3D'>
-          <div>
-            Card Test
+          <img className="cardProfileImg" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbTNnfKwI4sGVBJ9Q4FMLUTTmDZgRU3fR3tcvPRRYsKKk94A9vQDsxTXMQxPzeMszNsJI&usqp=CAU" alt="" />
+          <div className='cardProfileDivisor' />
+          <div className='cardProfileInfo'>
+            <h2>
+              Lorem Ipsum
+            </h2>
+            <p>
+              dolor sit amet consectetur adipisicing elit. Voluptates, maxime! Odit aliquid consequatur delectus optio facilis voluptate magnam tempore officiis voluptatum fuga, eos, iste unde ipsum nulla, quisquam ipsam quae.
+            </p>
+            <p>
+              Web Developer
+            </p>
+            <div className='cardProfileStickers'>
+              <img src="https://media.istockphoto.com/vectors/nodejs-vector-logo-backend-programming-in-javascript-server-vector-id1195857274?k=20&m=1195857274&s=170667a&w=0&h=k8oHsv3ehrvhviozLlvhEjGHweiHU7hbBv7bHEkgUqc=" alt="" />
+              <img src="https://rlv.zcache.com/html_5_logo_round_sticker-r10f41fb54bc84b71ab5f2f27cdf682ae_0ugmp_8byvr_704.webp" alt="" />
+              <img src="https://www.stickersdevs.com.br/wp-content/uploads/2020/01/hexa_CSS_adesivo_sticker.jpg" alt="" />
+            </div>
           </div>
         </div>
       </Tilt>
