@@ -2,14 +2,15 @@ import React from 'react';
 
 import './MainTest.css'
 
-interface {
-  titulo: string;
+type Props = {
+  titulo?: string,
+  color?: string
 }
 
-const MainTest: React.FC = ( titulo ) => {
+const MainTest: React.FC<Props> = ({ titulo, color }) => {
   return (
     <div className='main-wrapper'>
-      <div className='main-test'>
+      <div className='main-test' style={{ backgroundColor: `${color}`}}>
         {titulo}
       </div>
     </div>

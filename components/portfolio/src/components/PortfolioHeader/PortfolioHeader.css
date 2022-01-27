@@ -1,4 +1,51 @@
-.portfolioHeader {
-  height: 700px;
-  background-color: grey;
+.portfolio-header {
+  background-color: #1b1b1b;
+}
+
+.portfolio-container {
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.portfolio-user-apresentation h2 {
+  font-size: 3rem;
+  margin: 12px 0;
+}
+
+.portfolio-user-apresentation span {
+  margin-top: 6px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.portfolio-user-apresentation h3{
+  font-size: 1.6rem;
+  font-weight: normal;
+  margin: 10px 0;
+}
+
+.portfolio-apresentation-buttons button {
+  margin-top: 30px;
+  margin-right: 10px;
+  font-size: 1rem;
+  background-color: transparent;
+  display: inline-block;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  border-radius: 8px;
+}
+
+.portfolio-apresentation-buttons button:nth-child(2) {
+  background-color: transparent;
+  border: 1px solid white;
+  padding: 15px 26px;
+}
+
+.profile-image {
+  width: 300px;
 }

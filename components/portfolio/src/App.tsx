@@ -11,8 +11,7 @@ function App() {
     <div className="App">
       <Header />
       <PortfolioHeader />
-      <MainTest titulo="Testando"/>
-      <MainTest titulo="Test 2"/>
+      {/* <MainTest titulo="Testando" color='gray'/> */}
       {/* <EditableTitle /> */}
     </div>
   )

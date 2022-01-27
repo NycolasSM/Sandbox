@@ -16,8 +16,6 @@ const Header: React.FC = () => {
             <li>Option 3</li>
             <li>Option 4</li>
             <li>Option 5</li>
-            <li>Option 5</li>
-            <li>Option 5</li>
           </ul>
         </nav>
       </div>

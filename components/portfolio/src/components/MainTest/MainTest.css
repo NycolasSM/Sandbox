@@ -1,10 +1,3 @@
-.main-wrapper {
-  max-width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  width: 1048px;
-}
-
 .main-test {
   background-color: gray;
   display: flex;
