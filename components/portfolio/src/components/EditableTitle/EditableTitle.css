@@ -16,7 +16,7 @@
   justify-content: space-evenly;
   flex-wrap: wrap;
   height: 60px;
-  width: 120px;
+  width: 160px;
   position: absolute;
   transform: translateX(380px);
 }
