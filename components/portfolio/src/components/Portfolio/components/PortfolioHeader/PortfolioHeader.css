@@ -2,17 +2,12 @@
   background-color: #1b1b1b;
 }
 
-.portfolio-container {
+.portfolio-header-container {
   height: 500px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0px 10px;
-}
-
-.portfolio-user-apresentation h2 {
-  font-size: 3rem;
-  margin: 12px 0;
 }
 
 .portfolio-user-apresentation span {
@@ -47,5 +42,6 @@
 }
 
 .profile-image {
+  display: block;
   width: 300px;
 }
