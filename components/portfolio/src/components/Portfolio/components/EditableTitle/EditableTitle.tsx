@@ -6,15 +6,18 @@ type Props = {
   defaultText?: string,
   defaultFontSize?: number,
   defaultfontColor?: string,
+  textAlign?: string,
+  size?: number,
 }
 
-const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", defaultFontSize = 40 }) => {
+const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", defaultFontSize = 40, textAlign = "left", size = 19}) => {
 
   const [fontWeight, setFontWeight] = useState("normal")
   const [fontSize, setFontSize] = useState(defaultFontSize)
   const [fontStyle, setFontStyle] = useState("normal")
   const [textDecoration, setTextDecoration] = useState("")
   const [fontColor, setFontColor] = useState("#ffffff")
+  const [alignText, setAlignText] = useState(textAlign)
 
   const toggleFontBold = () => {
     fontWeight === "normal" ? setFontWeight("bold") : setFontWeight("normal")
@@ -59,13 +62,14 @@ const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", defaultFo
 
   return (
     <div className="editable-title">
-      <input type="text" name="profileName" className="portfolio-profile-title" id="profileName" size={19} placeholder={defaultText} spellCheck={false}
+      <input type="text" name="profileName" className="portfolio-profile-title" id="profileName" size={size} placeholder={defaultText} spellCheck={false}
         style={{
           fontWeight: `${fontWeight}`,
           fontSize: `${fontSize}px`,
           fontStyle: `${fontStyle}`,
           textDecoration: `${textDecoration}`,
-          color: `${fontColor}`
+          color: `${fontColor}`,
+          textAlign: `${alignText}` as "center"
         }} />
       <div className="edit-tools-profile-title" id="editTool">
         <button style={{ fontWeight: "bold" }} onClick={() => toggleFontBold()} >B</button>

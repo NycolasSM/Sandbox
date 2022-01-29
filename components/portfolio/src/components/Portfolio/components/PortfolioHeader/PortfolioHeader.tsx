@@ -1,30 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import './PortfolioHeader.css'
 
-import ProfileImgExample from '../../../../assets/ProfileExample.png'
-import EditableTitle from '../EditableTitle/EditableTitle';
+import Layout1 from './layouts/Layout1/Layout1';
+import Layout2 from './layouts/Layout2/Layout2';
+
+import HeaderLayout1 from '../../../../assets/HeadeLayout1.png'
+import HeaderLayout2 from '../../../../assets/HeadeLayout2.png'
+
+//TODO fazer uma especie de menu que o usuario pode escolher qual layout de header utilizar e assim para os conteudos tambem
+//ANOTACAO lembrar de refator os codigos e colocar as variaveis se possivel fora do componente para que a variavel nao entre no ciclo de render do componente e seja carregado apenas uma vez
 
 const PortfolioHeader: React.FC = () => {
+
+  const [chosenLayout, setChosenLayoult] = useState("choosing")
+
+  const chooseLayout = (option: string) => {
+    setChosenLayoult(option)
+  }
+
   return (
-    <section className='portfolio-header'>
-      <div className='main-wrapper'>
-        <div className='portfolio-header-container'>
-          <div className='portfolio-user-apresentation'>
-            <span>Hi There!</span>
-            <EditableTitle defaultText='Seu Nome' defaultFontSize={60} />
-            <EditableTitle defaultText='Ex: Desenvolvedor FrontEnd' defaultFontSize={28} />
-            {/* <h3>Desenvolvedor FrontEnd</h3> */}
-            <span>JavaScript | HTML | CSS | React | TypeScript</span>
-            <div className='portfolio-apresentation-buttons'>
-              <button>Baixe Meu CV</button>
-              <button>Mais Sobre Mim</button>
-            </div>
+    <>
+      {chosenLayout === "choosing" ? <>
+        <div className='main-wrapper'>
+          <h3 className='portfolio-chosing-label'>Choose Header Layout</h3>
+          <div className='portfolio-choosing'>
+            <img onClick={() => chooseLayout("layout1")} src={HeaderLayout1} alt="layout" />
+            <img onClick={() => chooseLayout("layout2")} src={HeaderLayout2} alt="layout" />
           </div>
-          <img src={ProfileImgExample} className='profile-image' alt="Profile Image" />
         </div>
-      </div>
-    </section>
+      </>
+        :
+        chosenLayout === "layout1" ?
+          <Layout1 />
+          :
+          chosenLayout === "layout2" ?
+            <Layout2 />
+            :
+            "esse layout nao existe"
+      }
+    </>
+
   );
 };
 
