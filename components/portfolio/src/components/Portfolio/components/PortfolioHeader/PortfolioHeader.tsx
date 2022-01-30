@@ -31,11 +31,11 @@ const PortfolioHeader: React.FC = () => {
         </div>
       </>
         :
-        chosenLayout === "layout1" ?
-          <Layout1 />
+        chosenLayout === "layout1" ? 
+          <Layout1 choseLayout={() => setChosenLayoult("choosing")}/>
           :
           chosenLayout === "layout2" ?
-            <Layout2 />
+            <Layout2 choseLayout={() => setChosenLayoult("choosing")}/>
             :
             "esse layout nao existe"
       }

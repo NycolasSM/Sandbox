@@ -1,0 +1,24 @@
+.portfolio-add-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  height: 350px;
+  transition: all ease 0.1s;
+}
+
+.portfolio-add-section:hover {
+  background-color: #1a1a1a;
+  cursor: pointer;
+}
+
+.portfolio-add-section:hover > .add-section-button {
+  filter: invert(70%);
+}
+
+.add-section-button {
+  height: 70px;
+  filter: invert(30%);
+  transition: all ease 0.4s;
+}

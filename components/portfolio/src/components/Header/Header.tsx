@@ -11,11 +11,11 @@ const Header: React.FC = () => {
         </div>
         <nav className='header-navigation'>
           <ul>
-            <li>Option 1</li>
-            <li>Option 2</li>
-            <li>Option 3</li>
-            <li>Option 4</li>
-            <li>Option 5</li>
+            <li>Home</li>
+            <li>Portfolio Maker</li>
+            <li>Options</li>
+            <li>Info</li>
+            <li>Save Portfolio</li>
           </ul>
         </nav>
       </div>

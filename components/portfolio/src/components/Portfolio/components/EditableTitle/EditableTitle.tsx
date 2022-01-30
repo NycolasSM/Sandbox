@@ -55,14 +55,14 @@ const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", defaultFo
 
   const focusOnElementById = (elementId: string) => {
     if (elementId) {
-      // @ts-ignore: Object is possibly 'null'.
+      // @ts-ignore: Object is possibly 'null' error.
       document.getElementById(elementId).focus();
     }
   }
 
   return (
     <div className="editable-title">
-      <input type="text" name="profileName" className="portfolio-profile-title" id="profileName" size={size} placeholder={defaultText} spellCheck={false}
+      <input type="text" name="profileName" tabIndex={0} className="portfolio-profile-title" id="profileName" size={size} placeholder={defaultText} spellCheck={false}
         style={{
           fontWeight: `${fontWeight}`,
           fontSize: `${fontSize}px`,
@@ -71,7 +71,7 @@ const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", defaultFo
           color: `${fontColor}`,
           textAlign: `${alignText}` as "center"
         }} />
-      <div className="edit-tools-profile-title" id="editTool">
+      <div className="edit-tools-profile-title" id="editTool" tabIndex={-1}>
         <button style={{ fontWeight: "bold" }} onClick={() => toggleFontBold()} >B</button>
         <button style={{ fontStyle: "italic", fontFamily: "serif", fontWeight: "bold" }} onClick={() => toggleFontItalic()} >I</button>
         <button onClick={() => toggleTextUnderline()} >U</button>

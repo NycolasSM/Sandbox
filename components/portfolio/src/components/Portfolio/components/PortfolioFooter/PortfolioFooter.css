@@ -1,0 +1,8 @@
+.portfolio-footer {
+  background-color: #1a1a1a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 400px;
+  height: 150px;
+}

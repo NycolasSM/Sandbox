@@ -2,6 +2,18 @@
   cursor: pointer;
 }
 
+.profile-image-container {
+  height: 300px;
+  width: 300px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.profile-image {
+  height: 200px;
+}
+
 .edit-tools-profile-image {
   display: none;
   background-color: gray;
@@ -11,10 +23,10 @@
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  height: 60px;
+  height: 190px;
   width: 160px;
-  position: absolute;
-  transform: translate(800px, 190px);
+  position: fixed;
+  transform: translateY(180px);
 }
 
 .profile-image:focus ~ .edit-tools-profile-image {
