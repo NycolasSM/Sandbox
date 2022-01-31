@@ -2,15 +2,14 @@ import React from 'react';
 
 import "./PortfolioFooter.css"
 
-import FooterImg from '../../../../assets/footer.png'
 import { FaGithub, FaLinkedin, } from 'react-icons/fa'
-import { AiFillMail, AiOutlineFileProtect } from 'react-icons/ai'
+import { AiFillMail } from 'react-icons/ai'
+import { SiAltiumdesigner } from 'react-icons/si'
 import { MdFacebook } from 'react-icons/md'
 
 const PortfolioFooter: React.FC = () => {
   return (
     <section className='portfolio-footer'>
-      {/* <img src={FooterImg} alt="" /> */}
       <div>
         <AiFillMail className='portfolio-footer-icon' size={40}/>
         <FaLinkedin className='portfolio-footer-icon' size={40}/>
@@ -18,8 +17,8 @@ const PortfolioFooter: React.FC = () => {
         <MdFacebook className='portfolio-footer-icon' size={40}/>
       </div>
       <hr />
-      <AiOutlineFileProtect className='portfolio-footer-icon' size={40} color='gray'/>
-      <p style={{color: 'gray'}}>created with (Project Name)</p>
+      <SiAltiumdesigner className='portfolio-footer-icon' size={40} color='gray'/>
+      <p>created with (Project Name)</p>
     </section>
   );
 };

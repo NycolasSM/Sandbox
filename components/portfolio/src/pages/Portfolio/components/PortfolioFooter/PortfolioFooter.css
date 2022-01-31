@@ -17,7 +17,11 @@
 
 .portfolio-footer hr {
   width: 600px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.portfolio-footer p {
+  color: gray;
 }
 
 .portfolio-footer-icon:hover {

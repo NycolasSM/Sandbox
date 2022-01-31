@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import "./AddNewSection.css"
 
 import AddButton from './assets/add-button-svgrepo-com.svg'
+import AddNewSectionModal from './components/AddNewSectionModal/AddNewSectionModal';
 
 const AddNewSection: React.FC = () => {
 
@@ -28,16 +29,17 @@ const AddNewSection: React.FC = () => {
                 component2
               </div>
               :
-              "this component name does not exist"
+              "this component does not exist"
           }
         </>
           :
           addSection === "choosing" ? <>
-            <button onClick={() => { setAddComponent("component1"), setAddSection("chose") }} >escolher component 1</button>
-            <button onClick={() => { setAddComponent("component2"), setAddSection("chose") }} >escolher component 2</button>
+            <AddNewSectionModal cancel={() => setAddSection("label")} />
+            {/* <button onClick={() => { setAddComponent("component1"), setAddSection("chose") }} >escolher component 1</button> */}
+            {/* <button onClick={() => { setAddComponent("component2"), setAddSection("chose") }} >escolher component 2</button> */}
           </>
             :
-            "this section name does not exist"
+            "this section does not exist"
       }
 
     </>
