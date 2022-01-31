@@ -8,7 +8,6 @@ import AddNewSectionModal from './components/AddNewSectionModal/AddNewSectionMod
 const AddNewSection: React.FC = () => {
 
   const [addSection, setAddSection] = useState("label")
-  const [addComponent, setAddComponent] = useState("")
 
   return (
     <>
@@ -18,30 +17,12 @@ const AddNewSection: React.FC = () => {
         </section>
       </>
         :
-        addSection === "chose" ? <>
-          {addComponent === "component1" ?
-            <div>
-              component1
-            </div>
-            :
-            addComponent === "component2" ?
-              <div>
-                component2
-              </div>
-              :
-              "this component does not exist"
-          }
+        addSection === "choosing" ? <>
+          <AddNewSectionModal cancel={() => setAddSection("label")} />
         </>
           :
-          addSection === "choosing" ? <>
-            <AddNewSectionModal cancel={() => setAddSection("label")} />
-            {/* <button onClick={() => { setAddComponent("component1"), setAddSection("chose") }} >escolher component 1</button> */}
-            {/* <button onClick={() => { setAddComponent("component2"), setAddSection("chose") }} >escolher component 2</button> */}
-          </>
-            :
-            "this section does not exist"
+          "this section does not exist"
       }
-
     </>
   );
 };
