@@ -5,7 +5,7 @@ import './ChoosingLayout.css'
 import Layout1 from './layouts/Layout1/Layout1';
 import Layout2 from './layouts/Layout2/Layout2';
 
-import HeaderLayout1 from '../../../../../../assets/HeadeLayout2.png'
+import HeaderLayout1 from '../../../../../../assets/HeadeLayout1.png'
 import HeaderLayout2 from '../../../../../../assets/HeadeLayout2.png'
 
 

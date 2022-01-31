@@ -64,10 +64,10 @@ const AddNewSectionModal: React.FC<Props> = ({
             </div>
           </div>
         </> :
-        choosenComponent === "EditableTitle" ? 
-          <EditableTitle />
-        :
-        "error on choosenComponent Name"
+          choosenComponent === "EditableTitle" ?
+            <EditableTitle textAlign='center'/>
+            :
+            "error on choosenComponent Name"
       }
     </div>
   );

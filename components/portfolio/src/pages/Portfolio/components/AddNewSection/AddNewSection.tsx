@@ -5,7 +5,13 @@ import "./AddNewSection.css"
 import AddButton from './assets/add-button-svgrepo-com.svg'
 import AddNewSectionModal from './components/AddNewSectionModal/AddNewSectionModal';
 
-const AddNewSection: React.FC = () => {
+type Props = {
+  id: any;
+  deleteSection: () => void;
+  type?: string;
+}
+
+const AddNewSection: React.FC<Props> = ({ deleteSection }) => {
 
   const [addSection, setAddSection] = useState("label")
 
@@ -23,6 +29,7 @@ const AddNewSection: React.FC = () => {
           :
           "this section does not exist"
       }
+      <button onClick={() => deleteSection()}>Delete Section</button>
     </>
   );
 };
