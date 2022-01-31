@@ -1,0 +1,23 @@
+.portfolio-choosing {
+  height: 320px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.portfolio-choosing img {
+  height: 200px;
+}
+
+.portfolio-chosing-label {
+  margin: auto;
+  text-align: center;
+  padding-top: 80px;
+}
+
+.portfolio-choosing img:hover {
+  outline: 1px white solid;
+   cursor: pointer;
+}

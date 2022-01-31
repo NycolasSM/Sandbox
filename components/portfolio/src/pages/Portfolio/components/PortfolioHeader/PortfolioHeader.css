@@ -1,27 +1,6 @@
 .portfolio-header {
-  background-color: #1b1b1b;
-}
-
-.portfolio-choosing {
-  height: 320px;
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
-
-.portfolio-choosing img {
-  height: 200px;
-}
-
-.portfolio-chosing-label {
-  margin: auto;
-  text-align: center;
-  margin-top: 100px;
-}
-
-.portfolio-choosing img:hover {
-  outline: 1px white solid;
-   cursor: pointer;
+  background-color: #141414;
+  height: 590px;
+  margin: 0;
+  padding: 0;
 }

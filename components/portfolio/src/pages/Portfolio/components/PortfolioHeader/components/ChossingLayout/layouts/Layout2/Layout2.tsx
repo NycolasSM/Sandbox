@@ -2,8 +2,8 @@ import React from 'react';
 
 import "./Layout2.css"
 
-import EditableTitle from '../../../EditableTitle/EditableTitle';
-import ProfileImg from '../../../ProfileImg/ProfileImg';
+import EditableTitle from '../../../../../EditableTitle/EditableTitle';
+import ProfileImg from '../../../../../ProfileImg/ProfileImg';
 
 type Props = {
   choseLayout: () => void
