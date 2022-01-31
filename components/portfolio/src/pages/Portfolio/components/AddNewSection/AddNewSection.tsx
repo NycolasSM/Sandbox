@@ -6,7 +6,7 @@ import AddButton from './assets/add-button-svgrepo-com.svg'
 import AddNewSectionModal from './components/AddNewSectionModal/AddNewSectionModal';
 
 type Props = {
-  id: any;
+  id: number;
   deleteSection: () => void;
   type?: string;
 }

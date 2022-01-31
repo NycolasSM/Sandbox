@@ -7,22 +7,31 @@ import PortfolioFooter from './components/PortfolioFooter/PortfolioFooter';
 
 const Portfolio: React.FC = () => {
 
-  const createNewSection = () => {
+  let [numberOfSections, setNumberOfSections] = useState(0)
+  // let numberOfSections = 0;
 
+  const [sectionArray, setSectionArray] = useState([{
+    
+  }]);
+  const [sectionId, setSectionId] = useState();
+
+  const createNewSection = () => {
+    setNumberOfSections(numberOfSections + 1)
+    const copyPostArray = Object.assign([], sectionArray)
+    copyPostArray.push({
+      id : numberOfSections
+    })
+    setSectionArray(copyPostArray)
   }
 
-  const [sectionArray, setSectionArray] = useState([
-    {id: 1},
-    {id: 2},
-  ])
-
-  const deleteSection = (index: any) => {
+  const deleteSection = (index: number) => {
     const copyPostArray = Object.assign([], sectionArray);
     copyPostArray.splice(index, 1);
     setSectionArray(
       copyPostArray
     )
-  }
+    console.log(index)
+  };
   
   return (
     <div className="portfolio-main-container">
@@ -30,11 +39,11 @@ const Portfolio: React.FC = () => {
       {
         sectionArray.map((section, index) => {
           return (
-            <AddNewSection id={section.id} deleteSection={deleteSection.bind(this, index)}/>
+            <AddNewSection key={section.id} id={section.id} deleteSection={deleteSection.bind(this, index)}/>
           )
         })
       }
-      <button onClick={() => createNewSection()}>teste</button>
+      <button onClick={() => createNewSection()}>Adicionar Componente</button>
       <PortfolioFooter />
     </div>
   );
