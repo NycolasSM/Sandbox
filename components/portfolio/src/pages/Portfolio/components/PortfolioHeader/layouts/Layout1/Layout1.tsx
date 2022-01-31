@@ -10,6 +10,7 @@ type Props = {
 }
 
 const Layout1: React.FC<Props> = ({ choseLayout, }) => {
+
   return (
     <section className='portfolio-header_layout1'>
       <div className='main-wrapper'>
