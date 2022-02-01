@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import './EditableTitle.css'
 
-import PreviewImg from '../../../../assets/HeadeLayout2.png'
+import PreviewImg from '../../../../assets/PreviewTitleComponent.gif'
 
 type Props = {
   defaultText?: string,

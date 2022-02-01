@@ -7,7 +7,7 @@ import { BiPhotoAlbum, BiText } from 'react-icons/bi'
 import { GiAchievement } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 
-import previewImg from '../../../../../../assets/PreviewTextComponent.png'
+import PreviewImgTitleComponent from '../../../../../../assets/PreviewTitleComponent.gif'
 
 import EditableTitle from '../../../EditableTitle/EditableTitle'
 
@@ -28,7 +28,7 @@ const AddNewSectionModal: React.FC<Props> = ({
   const [typeOfNewSection, setTypeOfNewSection] = useState("Text")
 
   const [textSectionsArray, setTextSectionsArray] = useState([
-    <EditableTitle previewImg={previewImg} />
+    <EditableTitle previewImg={PreviewImgTitleComponent} />
   ])
 
   const [projectsSectionsArray, setProjectsSectionsArray] = useState([
