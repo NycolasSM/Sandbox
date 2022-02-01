@@ -2,15 +2,18 @@ import React, { useState } from "react";
 
 import './EditableTitle.css'
 
+import PreviewImg from '../../../../assets/HeadeLayout2.png'
+
 type Props = {
   defaultText?: string,
   defaultFontSize?: number,
   defaultfontColor?: string,
   textAlign?: string,
   size?: number,
+  previewImg?: string;
 }
 
-const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", defaultFontSize = 40, textAlign = "left", size = 19}) => {
+const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", previewImg={PreviewImg}, defaultFontSize = 40, textAlign = "left", size = 19}) => {
 
   const [fontWeight, setFontWeight] = useState("normal")
   const [fontSize, setFontSize] = useState(defaultFontSize)

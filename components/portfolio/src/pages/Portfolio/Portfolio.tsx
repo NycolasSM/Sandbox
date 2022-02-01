@@ -8,18 +8,16 @@ import PortfolioFooter from './components/PortfolioFooter/PortfolioFooter';
 const Portfolio: React.FC = () => {
 
   let [numberOfSections, setNumberOfSections] = useState(0)
-  // let numberOfSections = 0;
 
   const [sectionArray, setSectionArray] = useState([{
-    
+    id: 0
   }]);
-  const [sectionId, setSectionId] = useState();
 
   const createNewSection = () => {
     setNumberOfSections(numberOfSections + 1)
     const copyPostArray = Object.assign([], sectionArray)
     copyPostArray.push({
-      id : numberOfSections
+      id: numberOfSections
     })
     setSectionArray(copyPostArray)
   }
@@ -30,20 +28,18 @@ const Portfolio: React.FC = () => {
     setSectionArray(
       copyPostArray
     )
-    console.log(index)
   };
-  
+
   return (
     <div className="portfolio-main-container">
       <PortfolioHeader />
       {
         sectionArray.map((section, index) => {
           return (
-            <AddNewSection key={section.id} id={section.id} deleteSection={deleteSection.bind(this, index)}/>
+            <AddNewSection addNewSection={() => createNewSection()} key={section.id} id={section.id} deleteSection={deleteSection.bind(this, index)} />
           )
         })
       }
-      <button onClick={() => createNewSection()}>Adicionar Componente</button>
       <PortfolioFooter />
     </div>
   );

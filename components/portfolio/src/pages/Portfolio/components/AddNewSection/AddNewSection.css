@@ -1,19 +1,25 @@
-.portfolio-add-section {
+.new-section-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0px;
+}
+
+.add-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 40px;
-  margin-bottom: 60px;
   height: 300px;
+  width: 100%;
   transition: all ease 0.1s;
 }
 
-.portfolio-add-section:hover {
+.add-section:hover {
   background-color: #1a1a1a;
   cursor: pointer;
 }
 
-.portfolio-add-section:hover > .add-section-button {
+.add-section:hover > .add-section-button {
   filter: invert(70%);
 }
 
@@ -21,4 +27,9 @@
   height: 70px;
   filter: invert(30%);
   transition: all ease 0.4s;
+}
+
+.delete-section-button {
+  position: absolute;
+  right: 100px;
 }
