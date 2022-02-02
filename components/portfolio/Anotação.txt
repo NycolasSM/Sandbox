@@ -1,0 +1,3 @@
+Talvez nao precise importar o preview dentro do componente, apenas no add section
+
+fazer a diferença entre seção e componentes

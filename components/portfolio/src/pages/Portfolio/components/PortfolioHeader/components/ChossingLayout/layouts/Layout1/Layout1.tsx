@@ -20,7 +20,7 @@ const Layout1: React.FC<Props> = ({ choseLayout, }) => {
             <span>Hi There!</span>
             <EditableTitle defaultText='Seu Nome' defaultFontSize={60} />
             <EditableTitle defaultText='Ex: Desenvolvedor FrontEnd' defaultFontSize={28} />
-            <span>JavaScript | HTML | CSS | React | TypeScript</span>
+            <span contentEditable={true} >JavaScript | HTML | CSS | React | TypeScript</span>
             <div className='portfolio-apresentation-buttons_layout1'>
               <button>Baixe Meu CV</button>
               <button>Mais Sobre Mim</button>

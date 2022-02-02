@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import "./AddNewSectionModal.css"
+import "./AddNewComponent.css"
 
 import { AiFillGithub, AiOutlineFundProjectionScreen } from 'react-icons/ai'
 import { BiPhotoAlbum, BiText } from 'react-icons/bi'
@@ -17,7 +17,7 @@ type Props = {
   isComponentChoosen: () => void;
 }
 
-const AddNewSectionModal: React.FC<Props> = ({
+const AddNewComponent: React.FC<Props> = ({
   cancel,
   addNewSection,
   isComponentChoosen
@@ -117,4 +117,4 @@ const AddNewSectionModal: React.FC<Props> = ({
   );
 };
 
-export default AddNewSectionModal;
+export default AddNewComponent;

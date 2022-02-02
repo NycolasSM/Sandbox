@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import "./AddNewSection.css"
 
 import AddButton from './assets/add-button-svgrepo-com.svg'
-import AddNewSectionModal from './components/AddNewSectionModal/AddNewSectionModal';
+import AddNewComponent from './components/AddNewComponent/AddNewComponent';
 
 type Props = {
   id: number;
@@ -26,7 +26,7 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
       </>
         :
         addSection === "choosing" ? <>
-          <AddNewSectionModal isComponentChoosen={() => setIsComponentChoosen(true)} cancel={() => setAddSection("label")} addNewSection={addNewSection} />
+          <AddNewComponent isComponentChoosen={() => setIsComponentChoosen(true)} cancel={() => setAddSection("label")} addNewSection={addNewSection} />
           {isComponentChoosen === true ?
             <button className="delete-section-button" onClick={() => deleteSection()}>X</button>
             : ""}
