@@ -28,11 +28,15 @@ const AddNewComponent: React.FC<Props> = ({
 
   const [typeOfNewSection, setTypeOfNewSection] = useState("Text")
 
-  const [textSectionsArray, setTextSectionsArray] = useState([
+  const [textComponentsArray, setTextComponentsArray] = useState([
     <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
   ])
 
-  const [projectsSectionsArray, setProjectsSectionsArray] = useState([
+  const [projectsComponentsArray, setProjectsComponentsArray] = useState([
+
+  ])
+
+  const [galeryComponentsArray, setGaletyComponentsArray] = useState([
 
   ])
 
@@ -71,7 +75,7 @@ const AddNewComponent: React.FC<Props> = ({
                 </div>
                 <div className="add-section-modal-content">
                   {typeOfNewSection === "Text" ? <>
-                    {textSectionsArray.map((section, index) => {
+                    {textComponentsArray.map((section, index) => {
                       return (
                         <img key={index} className={"preview-section-img"} onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }} src={section.props.previewImg} alt="" />
                       )

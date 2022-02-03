@@ -16,7 +16,7 @@ const Layout1: React.FC = () => {
           <span>Hi There!</span>
           <EditableTitle deleteComponent={() => {}} isDeletable={false} defaultText='Seu Nome' defaultFontSize={60} />
           <EditableTitle deleteComponent={() => {}} isDeletable={false} defaultText='Ex: Desenvolvedor FrontEnd' defaultFontSize={28} />
-          <span contentEditable={true} >JavaScript | HTML | CSS | React | TypeScript</span>
+          <span >JavaScript | HTML | CSS | React | TypeScript</span>
           <div className='portfolio-apresentation-buttons_layout1'>
             <button>Baixe Meu CV</button>
             <button>Mais Sobre Mim</button>

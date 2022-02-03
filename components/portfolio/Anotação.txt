@@ -1,3 +1,7 @@
 Talvez nao precise importar o preview dentro do componente, apenas no add section
 
 fazer a diferença entre seção e componentes
+
+
+colocar um botao toggle nas seçoes para o usuario poder visualizar a seção sem qualquer
+botao de modificação para assim ele ter o preview exato da seção como ira ficar

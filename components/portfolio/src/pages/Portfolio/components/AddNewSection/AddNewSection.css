@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: flex-start;
   margin: 0 auto;
+  padding: 10px 0px;
   min-height: 350px;
   width: 100%;
   transition: all ease 0.2s;
@@ -16,6 +17,47 @@
 
 .new-section:hover .section-configuration {
   opacity: 1;
+}
+
+.new-section:hover .section-preview-button {
+  opacity: 1;
+}
+
+.section-preview-button {
+  opacity: 0;
+  position: absolute;
+  padding-top: 10px;
+  padding-left: 10px;
+  left: 1px;
+  display: flex;
+  align-items: center;
+  transition: all ease 0.2s;
+}
+
+.section-preview-button input {
+  display: none;
+}
+
+.section-preview-button-input:checked ~ .section-preview-button-icon  {
+  opacity: 0.4;
+  padding-left: 4px;
+}
+
+.section-preview-button-input:hover ~ .section-preview-button-label {
+  opacity: 1;
+}
+
+.section-preview-button-icon {
+  opacity: 0.3;
+  transition: all ease 0.2s;
+  cursor: pointer;
+}
+
+.section-preview-button-label {
+  opacity: 0;
+  color: #b8b8b8;
+  transition: all ease 0.2s;
+  cursor: pointer;
 }
 
 .section-configuration {
@@ -139,7 +181,7 @@
 .add-component-button {
   opacity: 0.4;
   transition: all ease 0.2s;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .add-component-button:hover {
@@ -156,5 +198,4 @@
   transition: all ease 0.2s;
   color: gray;
   font-size: 0.9rem;
-  margin-bottom: 30px;
 }
