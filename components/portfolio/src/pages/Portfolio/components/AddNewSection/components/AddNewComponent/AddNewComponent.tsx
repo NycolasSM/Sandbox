@@ -7,7 +7,7 @@ import { BiPhotoAlbum, BiText } from 'react-icons/bi'
 import { GiAchievement } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 
-import PreviewImgTitleComponent from '../../../../../../assets/PreviewTitleComponent.gif'
+import PreviewImgTitleComponent from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
 
 import EditableTitle from '../../../EditableTitle/EditableTitle'
 
@@ -29,7 +29,7 @@ const AddNewComponent: React.FC<Props> = ({
   const [typeOfNewSection, setTypeOfNewSection] = useState("Text")
 
   const [textSectionsArray, setTextSectionsArray] = useState([
-    <EditableTitle previewImg={PreviewImgTitleComponent} />
+    <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
   ])
 
   const [projectsSectionsArray, setProjectsSectionsArray] = useState([
@@ -108,13 +108,13 @@ const AddNewComponent: React.FC<Props> = ({
               </div>
             </div>
           </div>
-        </> :
+        </>
+          :
           choosenComponent === "EditableTitle" ?
-            <EditableTitle textAlign='center' />
+            <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} textAlign='center' />
             :
             "error on choosenComponent Name"
       }
-      <button onClick={() => deleteComponent()}>DeleteComponent</button>
     </div>
   );
 };

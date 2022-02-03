@@ -2,8 +2,12 @@ import React, { useState } from "react";
 
 import "./AddNewSection.css"
 
-import AddButton from "./assets/add-button-svgrepo-com.svg"
 import AddNewComponent from "./components/AddNewComponent/AddNewComponent";
+
+import { AiOutlineAppstoreAdd, AiOutlineControl, AiOutlineArrowUp, AiOutlineArrowDown } from 'react-icons/ai'
+import { RiPlayListAddLine } from 'react-icons/ri'
+import { FaRegEdit } from 'react-icons/fa'
+import { BsTrash } from 'react-icons/bs'
 
 type Props = {
   id: number;
@@ -14,7 +18,7 @@ type Props = {
 const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
 
 
-  let [numberOfComponents, setNumberOfComponents] = useState(1)
+  let [numberOfComponents, setNumberOfComponents] = useState(0)
 
   const [addSection, setAddSection] = useState("addNewSection")
 
@@ -41,7 +45,7 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
     <>
       {addSection === "addNewSection" ? <>
         <div className="add-section"  >
-          <button onClick={() => { addNewSection(), setAddSection("sectionAdded") }} id="addSecton" className="add-section-button">+</button>
+          <RiPlayListAddLine size={36} onClick={() => { addNewSection(), setAddSection("sectionAdded") }} id="addSecton" className="add-section-button" />
           <label className="add-section-button-label" htmlFor="addSecton">Add New Section</label>
         </div>
       </>
@@ -49,23 +53,32 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
         ""
       }
       {addSection === "sectionAdded" ? <section className="new-section" id="newSection" >
-          <div className="options-section-buttons">
-            <button className="config-section-button">config</button>
-            <button className="delete-section-button" onClick={() => deleteSection()}>X</button>
+        <div className="section-configuration">
+          <AiOutlineControl className="section-configuration-button" tabIndex={0} size={34} />
+          <div className="options-section-buttons-container">
+            <div className="section-configuration-blur"></div>
+            <div className="options-section-buttons">
+              <FaRegEdit size={25} />
+              <AiOutlineArrowUp size={25} />
+              <AiOutlineArrowDown size={25} />
+              <BsTrash onClick={() => deleteSection()} size={25} />
+            </div>
           </div>
-          {componentArray.length > 0 ?
-            componentArray.map((component: any, index: number) => {
-              return (
-                <AddNewComponent cancel={deleteComponent.bind(this, index)} addNewComponent={() => createNewComponent} key={component.id} id={component.id} deleteComponent={deleteComponent.bind(this, index)} />
-              )
-            })
-            :
-            ""
-          }
-          < button onClick={() => createNewComponent()}>Add</button>
-        </section>
+        </div>
+        {componentArray.length > 0 ?
+          componentArray.map((component: any, index: number) => {
+            return (
+              <AddNewComponent cancel={deleteComponent.bind(this, index)} addNewComponent={() => createNewComponent} key={component.id} id={component.id} deleteComponent={deleteComponent.bind(this, index)} />
+            )
+          })
           :
           ""
+        }
+        <AiOutlineAppstoreAdd size={42} className="add-component-button" id="addComponent" style={{ paddingTop: `${(componentArray.length === 0 ? "126px" : "")}` }} onClick={() => createNewComponent()} />
+        <label className="add-component-button-label" htmlFor="addComponent">Add New Component</label>
+      </section>
+        :
+        ""
       }
     </>
   );

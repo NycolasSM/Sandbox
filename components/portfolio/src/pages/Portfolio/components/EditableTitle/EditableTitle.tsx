@@ -2,8 +2,6 @@ import React, { useState } from "react";
 
 import './EditableTitle.css'
 
-import PreviewImg from '../../../../assets/PreviewTitleComponent.gif'
-
 type Props = {
   defaultText?: string,
   defaultFontSize?: number,
@@ -11,9 +9,11 @@ type Props = {
   textAlign?: string,
   size?: number,
   previewImg?: string;
+  deleteComponent: () => void;
+  isDeletable: boolean;
 }
 
-const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", previewImg={PreviewImg}, defaultFontSize = 40, textAlign = "left", size = 19}) => {
+const EditableTitle: React.FC<Props> = ({ deleteComponent, isDeletable = false, defaultText = "insert text", defaultFontSize = 40, textAlign = "left", size = 19 }) => {
 
   const [fontWeight, setFontWeight] = useState("normal")
   const [fontSize, setFontSize] = useState(defaultFontSize)
@@ -78,9 +78,9 @@ const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", previewIm
         <button style={{ fontWeight: "bold" }} onClick={() => toggleFontBold()} >B</button>
         <button style={{ fontStyle: "italic", fontFamily: "serif", fontWeight: "bold" }} onClick={() => toggleFontItalic()} >I</button>
         <button onClick={() => toggleTextUnderline()} >U</button>
-        <input type="color" name="colorText" id="colorText" className="color-input" defaultValue={fontColor} onChange={(event) => {changeFontColor(event), focusOnElementById("editTool")}} />
+        <input type="color" name="colorText" id="colorText" className="color-input" defaultValue={fontColor} onChange={(event) => { changeFontColor(event), focusOnElementById("editTool") }} />
         <label htmlFor="font-size">Font Size</label>
-        <select onChange={(event) => {changeFontSize(event), focusOnElementById("editTool")}}  value={fontSize} id="font-size" name="font-size">
+        <select onChange={(event) => { changeFontSize(event), focusOnElementById("editTool") }} value={fontSize} id="font-size" name="font-size">
           <option value="30">30</option>
           <option value="35">35</option>
           <option value="40">40</option>
@@ -92,6 +92,11 @@ const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", previewIm
         <button onClick={() => fontSizeResize("+")}>+</button>
         <button onClick={() => fontSizeResize("-")}>-</button>
       </div>
+      {isDeletable === true ?
+        <button onClick={() => deleteComponent()}>DeleteComponent</button>
+        :
+        ""
+      }
     </div>
   );
 };
