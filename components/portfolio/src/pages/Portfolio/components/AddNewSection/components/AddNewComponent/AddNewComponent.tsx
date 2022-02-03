@@ -8,8 +8,12 @@ import { GiAchievement } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 
 import PreviewImgTitleComponent from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
+import PreviewImgProjects1 from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
+import PreviewImgProjects2 from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
 
-import EditableTitle from '../../../../../../components/EditableTitle/EditableTitle'
+import EditableTitle from '../../../../../../components/TextComponents/EditableTitle/EditableTitle'
+import Projects1 from '../../../../../../components/ProjectsComponents/Projects1/Projects1'
+import Projects2 from '../../../../../../components/ProjectsComponents/Projects2/Projects2'
 
 type Props = {
   id?: number;
@@ -35,7 +39,8 @@ const AddNewComponent: React.FC<Props> = ({
   ])
 
   const [projectsComponentsArray, setProjectsComponentsArray] = useState([
-
+    <Projects1 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />,
+    <Projects2 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
   ])
 
   const [galeryComponentsArray, setGaletyComponentsArray] = useState([
@@ -85,9 +90,11 @@ const AddNewComponent: React.FC<Props> = ({
                   </>
                     :
                     typeOfNewSection === "Projects" ? <>
-                      <div onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }}>Component Project</div>
-                      <div>Component Project</div>
-                      <div>Component Project</div>
+                      {projectsComponentsArray.map((section, index) => {
+                        return (
+                          <img key={index} className={"preview-section-img"} onClick={() => { setChoosenComponent(`Projects${index + 1}`), addNewComponent() }} src={section.props.previewImg} alt="" />
+                        )
+                      })}
                     </>
                       :
                       typeOfNewSection === "Galery" ? <>
@@ -119,10 +126,38 @@ const AddNewComponent: React.FC<Props> = ({
           choosenComponent === "EditableTitle" ?
             <EditableTitle isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} textAlign='center' />
             :
-            "error on choosenComponent Name"
+            choosenComponent === "Projects1" ?
+              <Projects1 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} />
+              :
+              choosenComponent === "Projects2" ?
+                <Projects2 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} />
+                :
+                "error on choosenComponent Name"
       }
     </div>
   );
 };
 
 export default AddNewComponent;
+
+
+
+
+
+
+
+          // const [componentChoose, setComponentChoose] = useState("EditableTitle")
+
+          // function chooseComponent(component: string) {
+          //   switch (component) {
+          //     case 'EditableTitle':
+          //       <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
+          //     case 'Projects1':
+          //       <Projects1 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
+          //     case 'Projects2':
+          //       <Projects2 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
+          //       break;
+          //     default:
+          //       console.log(`Sorry, we are out of ${component}.`);
+          //   }
+          // }
