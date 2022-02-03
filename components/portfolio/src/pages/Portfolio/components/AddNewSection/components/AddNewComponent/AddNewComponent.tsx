@@ -12,15 +12,16 @@ import PreviewImgTitleComponent from '../../../../../../assets/PreviewTitleCompo
 import EditableTitle from '../../../EditableTitle/EditableTitle'
 
 type Props = {
+  id?: number;
   cancel: () => void;
-  addNewSection: () => void;
-  isComponentChoosen: () => void;
+  deleteComponent: () => void;
+  addNewComponent: () => void;
 }
 
 const AddNewComponent: React.FC<Props> = ({
   cancel,
-  addNewSection,
-  isComponentChoosen
+  addNewComponent,
+  deleteComponent
 }) => {
 
   const [choosenComponent, setChoosenComponent] = useState("choosing")
@@ -32,7 +33,7 @@ const AddNewComponent: React.FC<Props> = ({
   ])
 
   const [projectsSectionsArray, setProjectsSectionsArray] = useState([
-    
+
   ])
 
   return (
@@ -72,31 +73,31 @@ const AddNewComponent: React.FC<Props> = ({
                   {typeOfNewSection === "Text" ? <>
                     {textSectionsArray.map((section, index) => {
                       return (
-                        <img key={index} className={"preview-section-img"} onClick={() => { setChoosenComponent("EditableTitle"), addNewSection(), isComponentChoosen() }} src={section.props.previewImg} alt="" />
+                        <img key={index} className={"preview-section-img"} onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }} src={section.props.previewImg} alt="" />
                       )
                     })}
                   </>
                     :
                     typeOfNewSection === "Projects" ? <>
-                      <div onClick={() => { setChoosenComponent("EditableTitle"), addNewSection(), isComponentChoosen() }}>Component Project</div>
+                      <div onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }}>Component Project</div>
                       <div>Component Project</div>
                       <div>Component Project</div>
                     </>
                       :
                       typeOfNewSection === "Galery" ? <>
-                        <div onClick={() => { setChoosenComponent("EditableTitle"), addNewSection(), isComponentChoosen() }}>Component Galery</div>
+                        <div onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }}>Component Galery</div>
                         <div>Component Galery</div>
                       </>
                         :
                         typeOfNewSection === "GitHub" ? <>
-                          <div onClick={() => { setChoosenComponent("EditableTitle"), addNewSection(), isComponentChoosen() }}>Component GitHub</div>
+                          <div onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }}>Component GitHub</div>
                           <div>Component GitHub</div>
                           <div>Component GitHub</div>
                           <div>Component GitHub</div>
                         </>
                           :
                           typeOfNewSection === "Achievements" ? <>
-                            <div onClick={() => { setChoosenComponent("EditableTitle"), addNewSection(), isComponentChoosen() }}>Component Achievements</div>
+                            <div onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }}>Component Achievements</div>
                             <div>Component Achievements</div>
                             <div>Component Achievements</div>
                           </>
@@ -113,6 +114,7 @@ const AddNewComponent: React.FC<Props> = ({
             :
             "error on choosenComponent Name"
       }
+      <button onClick={() => deleteComponent()}>DeleteComponent</button>
     </div>
   );
 };

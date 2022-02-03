@@ -10,10 +10,8 @@ type Props = {
 }
 
 const Layout2: React.FC<Props> = ({ choseLayout, }) => {
-return (
-  <section className='portfolio-header_layout2'>
-    <div className='main-wrapper'>
-      <button onClick={() => choseLayout()}>change layout</button>
+  return (
+    <section className='portfolio-header_layout2'>
       <div className='portfolio-header-container_layout2'>
         <ProfileImg margin={20} size={260} />
         <div className='portfolio-user-apresentation_layout2'>
@@ -26,9 +24,8 @@ return (
           </div>
         </div>
       </div>
-    </div>
-  </section>
-);
+    </section>
+  );
 };
 
 export default Layout2;

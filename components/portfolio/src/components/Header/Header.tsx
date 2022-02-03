@@ -14,7 +14,7 @@ const Header: React.FC = () => {
             <li>Home</li>
             <li>Portfolio Maker</li>
             <li>Options</li>
-            <li>Info</li>
+            <li>Preview</li>
           </ul>
         </nav>
         <button>Save</button>

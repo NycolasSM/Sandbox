@@ -65,7 +65,7 @@ const EditableTitle: React.FC<Props> = ({ defaultText = "insert text", previewIm
 
   return (
     <div className="editable-title">
-      <input type="text" name="profileName" tabIndex={0} className="portfolio-profile-title" id="profileName" size={size} placeholder={defaultText} spellCheck={false}
+      <input type="text" name="profileName" autoComplete="off" tabIndex={0} className="portfolio-profile-title" id="profileName" size={size} placeholder={defaultText} spellCheck={false}
         style={{
           fontWeight: `${fontWeight}`,
           fontSize: `${fontSize}px`,

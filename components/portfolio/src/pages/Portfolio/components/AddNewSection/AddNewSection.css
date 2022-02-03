@@ -1,32 +1,71 @@
-.new-section-container {
+.new-section {
+  margin: 0 auto;
+  min-height: 400px;
+  width: 100%;
+  transition: all ease 0.2s;
+  outline: solid 1px transparent;
+}
+
+.new-section:hover {
+  cursor: pointer;
+  outline: solid 1px #1e8fff81;
+}
+
+.options-section-buttons {
+  right: 10px;
+  position: absolute;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 0px;
 }
 
 .add-section {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 300px;
+  gap: 14px;
+  height: 200px;
   width: 100%;
-  transition: all ease 0.1s;
+  transition: all ease 0.2s;
 }
 
-.add-section:hover {
-  background-color: #1a1a1a;
+.add-section-button-label {
+  color: gray;
+  opacity: 0;
+  transition: all ease 0.2s;
   cursor: pointer;
 }
 
+.add-section:hover {
+  background-color: #ffffff03;
+}
+
+.add-section:hover .add-section-button-label {
+  opacity: 1;
+}
+
 .add-section:hover > .add-section-button {
-  filter: invert(70%);
+  cursor: pointer;
+  opacity: 1;
 }
 
 .add-section-button {
-  height: 70px;
-  filter: invert(30%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.08;
+  height: 50px;
+  width: 50px;
   transition: all ease 0.4s;
+  background-color: transparent;
+  border: 4px white solid;
+  color: white;
+  font-size: 2.8rem;
+  border-radius: 50%;
+}
+
+.add-section-button:hover {
+  cursor: pointer;
+  filter: brightness(1.3);
 }
 
 .delete-section-button {

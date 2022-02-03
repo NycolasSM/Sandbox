@@ -1,40 +1,73 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 import "./AddNewSection.css"
 
-import AddButton from './assets/add-button-svgrepo-com.svg'
-import AddNewComponent from './components/AddNewComponent/AddNewComponent';
+import AddButton from "./assets/add-button-svgrepo-com.svg"
+import AddNewComponent from "./components/AddNewComponent/AddNewComponent";
 
 type Props = {
   id: number;
   deleteSection: () => void;
   addNewSection: () => void;
-  type?: string;
 }
 
 const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
 
-  const [addSection, setAddSection] = useState("label")
-  const [isComponentChoosen, setIsComponentChoosen] = useState(false)
+
+  let [numberOfComponents, setNumberOfComponents] = useState(1)
+
+  const [addSection, setAddSection] = useState("addNewSection")
+
+  const [componentArray, setComponentArray] = useState<any>([]);
+
+  const createNewComponent = () => {
+    setNumberOfComponents(numberOfComponents + 1)
+    const copyPostArray = Object.assign([], componentArray)
+    copyPostArray.push({
+      id: numberOfComponents
+    })
+    setComponentArray(copyPostArray)
+  }
+
+  const deleteComponent = (index: number) => {
+    const copyPostArray = Object.assign([], componentArray);
+    copyPostArray.splice(index, 1);
+    setComponentArray(
+      copyPostArray
+    )
+  };
 
   return (
-    <section className='new-section-container'>
-      {addSection === "label" ? <>
-        <section onClick={() => setAddSection("choosing")} className="add-section">
-          <img className="add-section-button" src={AddButton} alt="Add new Section" />
-        </section>
+    <>
+      {addSection === "addNewSection" ? <>
+        <div className="add-section"  >
+          <button onClick={() => { addNewSection(), setAddSection("sectionAdded") }} id="addSecton" className="add-section-button">+</button>
+          <label className="add-section-button-label" htmlFor="addSecton">Add New Section</label>
+        </div>
       </>
         :
-        addSection === "choosing" ? <>
-          <AddNewComponent isComponentChoosen={() => setIsComponentChoosen(true)} cancel={() => setAddSection("label")} addNewSection={addNewSection} />
-          {isComponentChoosen === true ?
-            <button className="delete-section-button" onClick={() => deleteSection()}>X</button>
-            : ""}
-        </>
-          :
-          "this section does not exist"
+        ""
       }
-    </section>
+      {addSection === "sectionAdded" ? <section className="new-section" id="newSection" >
+          <div className="options-section-buttons">
+            <button className="config-section-button">config</button>
+            <button className="delete-section-button" onClick={() => deleteSection()}>X</button>
+          </div>
+          {componentArray.length > 0 ?
+            componentArray.map((component: any, index: number) => {
+              return (
+                <AddNewComponent cancel={deleteComponent.bind(this, index)} addNewComponent={() => createNewComponent} key={component.id} id={component.id} deleteComponent={deleteComponent.bind(this, index)} />
+              )
+            })
+            :
+            ""
+          }
+          < button onClick={() => createNewComponent()}>Add</button>
+        </section>
+          :
+          ""
+      }
+    </>
   );
 };
 
