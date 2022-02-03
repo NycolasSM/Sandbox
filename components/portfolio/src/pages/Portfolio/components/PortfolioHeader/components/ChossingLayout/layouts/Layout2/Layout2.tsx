@@ -2,7 +2,7 @@ import React from 'react';
 
 import "./Layout2.css"
 
-import EditableTitle from '../../../../../EditableTitle/EditableTitle';
+import EditableTitle from '../../../../../../../../components/EditableTitle/EditableTitle';
 import ProfileImg from '../../../../../ProfileImg/ProfileImg';
 
 type Props = {

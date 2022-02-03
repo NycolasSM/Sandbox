@@ -44,8 +44,6 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
     )
   };
 
-  let asd = document.getElementById("sectionPreviewButton");
-
   return (
     <>
       {addSection === "addNewSection" ? <>
@@ -88,7 +86,7 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
           {componentArray.length > 0 ?
             componentArray.map((component: any, index: number) => {
               return (
-                <AddNewComponent cancel={deleteComponent.bind(this, index)} addNewComponent={() => createNewComponent} key={component.id} id={component.id} deleteComponent={deleteComponent.bind(this, index)} />
+                <AddNewComponent isEditComponent={isSectionEditable} cancel={deleteComponent.bind(this, index)} addNewComponent={() => createNewComponent} key={component.id} id={component.id} deleteComponent={deleteComponent.bind(this, index)} />
               )
             })
             :

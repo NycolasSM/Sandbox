@@ -4,7 +4,7 @@ import "./Layout1.css"
 
 
 
-import EditableTitle from '../../../../../EditableTitle/EditableTitle';
+import EditableTitle from '../../../../../../../../components/EditableTitle/EditableTitle';
 import ProfileImg from '../../../../../ProfileImg/ProfileImg';
 
 const Layout1: React.FC = () => {

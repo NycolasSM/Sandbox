@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import './EditableTitle.css'
 
+import { CgExtensionRemove } from 'react-icons/cg'
+
 type Props = {
   defaultText?: string,
   defaultFontSize?: number,
@@ -65,7 +67,7 @@ const EditableTitle: React.FC<Props> = ({ deleteComponent, isDeletable = false, 
 
   return (
     <div className="editable-title">
-      <input type="text" name="profileName" autoComplete="off" tabIndex={0} className="portfolio-profile-title" id="profileName" size={size} placeholder={defaultText} spellCheck={false}
+      <input type="text" name="title" autoComplete="off" tabIndex={0} className="portfolio-title" id="title" size={size} placeholder={defaultText} spellCheck={false}
         style={{
           fontWeight: `${fontWeight}`,
           fontSize: `${fontSize}px`,
@@ -74,11 +76,18 @@ const EditableTitle: React.FC<Props> = ({ deleteComponent, isDeletable = false, 
           color: `${fontColor}`,
           textAlign: `${alignText}` as "center"
         }} />
-      <div className="edit-tools-profile-title" id="editTool" tabIndex={-1}>
+      <div className="edit-tools-title" id="editTool" tabIndex={-1}>
         <button style={{ fontWeight: "bold" }} onClick={() => toggleFontBold()} >B</button>
         <button style={{ fontStyle: "italic", fontFamily: "serif", fontWeight: "bold" }} onClick={() => toggleFontItalic()} >I</button>
         <button onClick={() => toggleTextUnderline()} >U</button>
         <input type="color" name="colorText" id="colorText" className="color-input" defaultValue={fontColor} onChange={(event) => { changeFontColor(event), focusOnElementById("editTool") }} />
+        {isDeletable === true ? <>
+          <CgExtensionRemove className="edit-tools-title-delete-button" onClick={() => deleteComponent()} size={28} />
+          <span className="edit-tools-title-delete-button-tooltip">Delete Component</span>
+        </>
+          :
+          ""
+        }
         <label htmlFor="font-size">Font Size</label>
         <select onChange={(event) => { changeFontSize(event), focusOnElementById("editTool") }} value={fontSize} id="font-size" name="font-size">
           <option value="30">30</option>
@@ -92,11 +101,6 @@ const EditableTitle: React.FC<Props> = ({ deleteComponent, isDeletable = false, 
         <button onClick={() => fontSizeResize("+")}>+</button>
         <button onClick={() => fontSizeResize("-")}>-</button>
       </div>
-      {isDeletable === true ?
-        <button onClick={() => deleteComponent()}>DeleteComponent</button>
-        :
-        ""
-      }
     </div>
   );
 };

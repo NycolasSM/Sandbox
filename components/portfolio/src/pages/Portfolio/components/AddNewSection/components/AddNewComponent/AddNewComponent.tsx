@@ -9,19 +9,21 @@ import { IoMdClose } from 'react-icons/io'
 
 import PreviewImgTitleComponent from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
 
-import EditableTitle from '../../../EditableTitle/EditableTitle'
+import EditableTitle from '../../../../../../components/EditableTitle/EditableTitle'
 
 type Props = {
   id?: number;
   cancel: () => void;
   deleteComponent: () => void;
   addNewComponent: () => void;
+  isEditComponent: boolean;
 }
 
 const AddNewComponent: React.FC<Props> = ({
   cancel,
   addNewComponent,
-  deleteComponent
+  deleteComponent,
+  isEditComponent
 }) => {
 
   const [choosenComponent, setChoosenComponent] = useState("choosing")
@@ -115,7 +117,7 @@ const AddNewComponent: React.FC<Props> = ({
         </>
           :
           choosenComponent === "EditableTitle" ?
-            <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} textAlign='center' />
+            <EditableTitle isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} textAlign='center' />
             :
             "error on choosenComponent Name"
       }
