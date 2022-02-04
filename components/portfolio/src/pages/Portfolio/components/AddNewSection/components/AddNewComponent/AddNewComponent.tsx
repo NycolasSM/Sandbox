@@ -35,7 +35,7 @@ const AddNewComponent: React.FC<Props> = ({
   isEditComponent
 }) => {
 
-  const [choosenComponent, setChoosenComponent] = useState("choosing")
+  const [choosenComponentStage, setChoosenComponentStage] = useState("choosing")
 
   const [typeOfNewSection, setTypeOfNewSection] = useState("Text")
 
@@ -54,10 +54,16 @@ const AddNewComponent: React.FC<Props> = ({
 
   const [previewComponent, setPreviewComponent] = useState(PreviewImgTitleComponentGif)
 
+  const [choosenComponent, setChoosenComponent] = useState()
+
+  function chooseComponent(array: any, index: number) {
+    setChoosenComponent(array[index])
+  }
+
   return (
     <div className='main-wrapper'>
       {
-        choosenComponent === "choosing" ? <>
+        choosenComponentStage === "choosing" ? <>
           <div className="add-section-modal-overlay">
             <div className="add-section-modal">
               <div className="add-section-modal-header">
@@ -91,7 +97,7 @@ const AddNewComponent: React.FC<Props> = ({
                   {typeOfNewSection === "Text" ? <>
                     {textComponentsArray.map((section, index) => {
                       return (
-                        <img key={index} src={section.props.previewImg} onMouseOver={() => console.log(section.props)} onMouseLeave={() => setPreviewComponent(PreviewImgTitleComponentGif)} className={"preview-section-img"} onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }} alt="Preview of Component" />
+                        <img key={index} src={section.props.previewImg} className={"preview-section-img"} onClick={() => { setChoosenComponentStage("componentChoosen"), chooseComponent(textComponentsArray, index), addNewComponent() }} alt="Preview of Component" />
                       )
                     })}
                   </>
@@ -99,25 +105,25 @@ const AddNewComponent: React.FC<Props> = ({
                     typeOfNewSection === "Projects" ? <>
                       {projectsComponentsArray.map((section, index) => {
                         return (
-                          <img key={index} src={section.props.previewImg} onMouseOver={() => console.log(section.type.previewImg)} onMouseLeave={() => setPreviewComponent(PreviewImgTitleComponentGif)} className={"preview-section-img"} onClick={() => { setChoosenComponent(`Projects${index + 1}`), addNewComponent() }} alt="Preview of Component" />
+                          <img key={index} src={section.props.previewImg} className={"preview-section-img"} onClick={() => { setChoosenComponentStage("componentChoosen"), chooseComponent(projectsComponentsArray, index), addNewComponent() }} alt="Preview of Component" />
                         )
                       })}
                     </>
                       :
                       typeOfNewSection === "Galery" ? <>
-                        <div onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }}>Component Galery</div>
+                        <div onClick={() => { setChoosenComponentStage("EditableTitle"), addNewComponent() }}>Component Galery</div>
                         <div>Component Galery</div>
                       </>
                         :
                         typeOfNewSection === "GitHub" ? <>
-                          <div onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }}>Component GitHub</div>
+                          <div onClick={() => { setChoosenComponentStage("EditableTitle"), addNewComponent() }}>Component GitHub</div>
                           <div>Component GitHub</div>
                           <div>Component GitHub</div>
                           <div>Component GitHub</div>
                         </>
                           :
                           typeOfNewSection === "Achievements" ? <>
-                            <div onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }}>Component Achievements</div>
+                            <div onClick={() => { setChoosenComponentStage("EditableTitle"), addNewComponent() }}>Component Achievements</div>
                             <div>Component Achievements</div>
                             <div>Component Achievements</div>
                           </>
@@ -130,54 +136,14 @@ const AddNewComponent: React.FC<Props> = ({
           </div>
         </>
           :
-          choosenComponent === "EditableTitle" ?
-            <EditableTitle isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} textAlign='center' previewImg='' />
+          choosenComponentStage === "componentChoosen" ? <>
+            {choosenComponent}
+          </>
             :
-            choosenComponent === "Projects1" ?
-              <Projects1 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} previewImg=''/>
-              :
-              choosenComponent === "Projects2" ?
-                <Projects2 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} previewImg=''/>
-                :
-                "error on choosenComponent Name"
+            "error on choosenComponentStage Name"
       }
     </div>
   );
 };
 
 export default AddNewComponent;
-
-
-
-
-
-
-
-// const [componentChoose, setComponentChoose] = useState("EditableTitle")
-
-// function chooseComponent() {
-//   switch (componentChoose) {
-//     case 'EditableTitle':
-//       <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
-//     case 'Projects1':
-//       <Projects1 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
-//     case 'Projects2':
-//       <Projects2 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
-//       break;
-//     default:
-//       console.log(`Sorry, we are out of ${componentChoose}.`);
-//   }
-// }
-
-
-
-          // choosenComponent === "EditableTitle" ?
-          // <EditableTitle isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} textAlign='center' />
-          // :
-          // choosenComponent === "Projects1" ?
-          //   <Projects1 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} />
-          //   :
-          //   choosenComponent === "Projects2" ?
-          //     <Projects2 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} />
-          //     :
-          //     "error on choosenComponent Name"

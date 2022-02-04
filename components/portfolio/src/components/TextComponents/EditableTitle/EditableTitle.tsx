@@ -10,13 +10,13 @@ type Props = {
   defaultfontColor?: string,
   textAlign?: string,
   size?: number,
-  previewImg: string;
+  previewImg?: string;
   previewImgGif?: string;
   deleteComponent: () => void;
   isDeletable: boolean;
 }
 
-const EditableTitle: React.FC<Props> = ({ deleteComponent, isDeletable = false, defaultText = "insert text", defaultFontSize = 40, textAlign = "left", size = 19 }) => {
+const EditableTitle: React.FC<Props> = ({ deleteComponent, isDeletable = false, defaultText = "insert text", defaultFontSize = 40, textAlign = "center", size = 19 }) => {
 
   const [fontWeight, setFontWeight] = useState("normal")
   const [fontSize, setFontSize] = useState(defaultFontSize)
