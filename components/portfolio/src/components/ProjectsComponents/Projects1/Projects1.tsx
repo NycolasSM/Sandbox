@@ -3,9 +3,13 @@ import React from "react";
 import './Projects1.css'
 
 import { CgExtensionRemove } from 'react-icons/cg'
+import previewComponentImg from "../../../assets/previewComponents/PreviewProject1.png"
+import previewComponentGif from "../../../assets/previewComponents/PreviewProject1Gif.png"
 
 type Props = {
-  previewImg?: string;
+  previewImg: string;
+  previewImgGif?: string;
+  playGif?: boolean;
   deleteComponent: () => void;
   isDeletable: boolean;
 }

@@ -10,7 +10,8 @@ type Props = {
   defaultfontColor?: string,
   textAlign?: string,
   size?: number,
-  previewImg?: string;
+  previewImg: string;
+  previewImgGif?: string;
   deleteComponent: () => void;
   isDeletable: boolean;
 }

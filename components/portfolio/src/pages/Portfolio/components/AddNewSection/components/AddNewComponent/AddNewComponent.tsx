@@ -7,13 +7,18 @@ import { BiPhotoAlbum, BiText } from 'react-icons/bi'
 import { GiAchievement } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
 
-import PreviewImgTitleComponent from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
-import PreviewImgProjects1 from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
-import PreviewImgProjects2 from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
-
+import PreviewImgTitleComponent from '../../../../../../assets/previewComponents/PreviewTextComponent.png'
+import PreviewImgTitleComponentGif from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
 import EditableTitle from '../../../../../../components/TextComponents/EditableTitle/EditableTitle'
+
+import PreviewImgProjects1 from '../../../../../../assets/previewComponents/PreviewProject1.png'
+import PreviewImgProjects1Gif from '../../../../../../assets/previewComponents/PreviewProject1Gif.png'
 import Projects1 from '../../../../../../components/ProjectsComponents/Projects1/Projects1'
+
+import PreviewImgProjects2 from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
+import PreviewImgProjects2Gif from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
 import Projects2 from '../../../../../../components/ProjectsComponents/Projects2/Projects2'
+
 
 type Props = {
   id?: number;
@@ -35,17 +40,19 @@ const AddNewComponent: React.FC<Props> = ({
   const [typeOfNewSection, setTypeOfNewSection] = useState("Text")
 
   const [textComponentsArray, setTextComponentsArray] = useState([
-    <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
+    <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} previewImgGif={PreviewImgTitleComponentGif} />
   ])
 
   const [projectsComponentsArray, setProjectsComponentsArray] = useState([
-    <Projects1 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />,
-    <Projects2 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
+    <Projects1 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgProjects1} previewImgGif={PreviewImgProjects1Gif} />,
+    <Projects2 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgProjects2} previewImgGif={PreviewImgProjects2Gif} />
   ])
 
   const [galeryComponentsArray, setGaletyComponentsArray] = useState([
 
   ])
+
+  const [previewComponent, setPreviewComponent] = useState(PreviewImgTitleComponentGif)
 
   return (
     <div className='main-wrapper'>
@@ -84,7 +91,7 @@ const AddNewComponent: React.FC<Props> = ({
                   {typeOfNewSection === "Text" ? <>
                     {textComponentsArray.map((section, index) => {
                       return (
-                        <img key={index} className={"preview-section-img"} onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }} src={section.props.previewImg} alt="" />
+                        <img key={index} src={section.props.previewImg} onMouseOver={() => console.log(section.props)} onMouseLeave={() => setPreviewComponent(PreviewImgTitleComponentGif)} className={"preview-section-img"} onClick={() => { setChoosenComponent("EditableTitle"), addNewComponent() }} alt="Preview of Component" />
                       )
                     })}
                   </>
@@ -92,7 +99,7 @@ const AddNewComponent: React.FC<Props> = ({
                     typeOfNewSection === "Projects" ? <>
                       {projectsComponentsArray.map((section, index) => {
                         return (
-                          <img key={index} className={"preview-section-img"} onClick={() => { setChoosenComponent(`Projects${index + 1}`), addNewComponent() }} src={section.props.previewImg} alt="" />
+                          <img key={index} src={section.props.previewImg} onMouseOver={() => console.log(section.type.previewImg)} onMouseLeave={() => setPreviewComponent(PreviewImgTitleComponentGif)} className={"preview-section-img"} onClick={() => { setChoosenComponent(`Projects${index + 1}`), addNewComponent() }} alt="Preview of Component" />
                         )
                       })}
                     </>
@@ -124,13 +131,13 @@ const AddNewComponent: React.FC<Props> = ({
         </>
           :
           choosenComponent === "EditableTitle" ?
-            <EditableTitle isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} textAlign='center' />
+            <EditableTitle isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} textAlign='center' previewImg='' />
             :
             choosenComponent === "Projects1" ?
-              <Projects1 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} />
+              <Projects1 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} previewImg=''/>
               :
               choosenComponent === "Projects2" ?
-                <Projects2 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} />
+                <Projects2 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} previewImg=''/>
                 :
                 "error on choosenComponent Name"
       }
@@ -146,18 +153,31 @@ export default AddNewComponent;
 
 
 
-          // const [componentChoose, setComponentChoose] = useState("EditableTitle")
+// const [componentChoose, setComponentChoose] = useState("EditableTitle")
 
-          // function chooseComponent(component: string) {
-          //   switch (component) {
-          //     case 'EditableTitle':
-          //       <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
-          //     case 'Projects1':
-          //       <Projects1 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
-          //     case 'Projects2':
-          //       <Projects2 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
-          //       break;
-          //     default:
-          //       console.log(`Sorry, we are out of ${component}.`);
-          //   }
-          // }
+// function chooseComponent() {
+//   switch (componentChoose) {
+//     case 'EditableTitle':
+//       <EditableTitle isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
+//     case 'Projects1':
+//       <Projects1 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
+//     case 'Projects2':
+//       <Projects2 isDeletable={true} deleteComponent={() => deleteComponent()} previewImg={PreviewImgTitleComponent} />
+//       break;
+//     default:
+//       console.log(`Sorry, we are out of ${componentChoose}.`);
+//   }
+// }
+
+
+
+          // choosenComponent === "EditableTitle" ?
+          // <EditableTitle isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} textAlign='center' />
+          // :
+          // choosenComponent === "Projects1" ?
+          //   <Projects1 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} />
+          //   :
+          //   choosenComponent === "Projects2" ?
+          //     <Projects2 isDeletable={isEditComponent} deleteComponent={() => deleteComponent()} />
+          //     :
+          //     "error on choosenComponent Name"

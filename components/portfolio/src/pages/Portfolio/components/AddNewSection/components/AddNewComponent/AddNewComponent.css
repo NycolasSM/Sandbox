@@ -50,6 +50,7 @@
 
 .add-section-modal-new-component {
   display: flex;
+
 }
 
 .add-section-modal-aside {
@@ -98,6 +99,8 @@
   margin: 8px;
   height: 200px;
   width: 660px;
+  outline: 1px solid transparent;
+  transition: all ease 0.2s;
 }
 
 .add-section-modal-content div:hover, .preview-section-img:hover{

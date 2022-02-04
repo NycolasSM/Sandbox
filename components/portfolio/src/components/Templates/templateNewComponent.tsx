@@ -5,7 +5,8 @@ import React from "react";
 import { CgExtensionRemove } from 'react-icons/cg'
 
 type Props = {
-  previewImg?: string;
+  previewImg: string;
+  previewImgGif?: string;
   deleteComponent: () => void;
   isDeletable: boolean;
 }
