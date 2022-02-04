@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 import "./AddNewComponent.css"
 
 import { AiFillGithub, AiOutlineFundProjectionScreen } from 'react-icons/ai'
-import { BiPhotoAlbum, BiText } from 'react-icons/bi'
+import { BiPhotoAlbum, BiText, BiMoviePlay } from 'react-icons/bi'
 import { GiAchievement } from 'react-icons/gi'
 import { IoMdClose } from 'react-icons/io'
+import { BsMusicNoteBeamed } from 'react-icons/bs'
 
-import PreviewImgTitleComponent from '../../../../../../assets/previewComponents/PreviewTextComponent.png'
+import PreviewImgTitleComponent from '../../../../../../assets/previewComponents/PreviewTitleComponent.png'
 import PreviewImgTitleComponentGif from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
 import EditableTitle from '../../../../../../components/TextComponents/EditableTitle/EditableTitle'
 
@@ -15,8 +16,8 @@ import PreviewImgProjects1 from '../../../../../../assets/previewComponents/Prev
 import PreviewImgProjects1Gif from '../../../../../../assets/previewComponents/PreviewProject1Gif.png'
 import Projects1 from '../../../../../../components/ProjectsComponents/Projects1/Projects1'
 
-import PreviewImgProjects2 from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
-import PreviewImgProjects2Gif from '../../../../../../assets/previewComponents/PreviewTitleComponent.gif'
+import PreviewImgProjects2 from '../../../../../../assets/previewComponents/PreviewProject2.png'
+import PreviewImgProjects2Gif from '../../../../../../assets/previewComponents/PreviewProject2Gif.png'
 import Projects2 from '../../../../../../components/ProjectsComponents/Projects2/Projects2'
 
 
@@ -52,7 +53,13 @@ const AddNewComponent: React.FC<Props> = ({
 
   ])
 
-  const [previewComponent, setPreviewComponent] = useState(PreviewImgTitleComponentGif)
+  const [gitHubComponentsArray, setGitHubComponentsArray] = useState([
+
+  ])
+
+  const [achievementsComponentsArray, setAchievementsComponentsArray] = useState([
+
+  ])
 
   const [choosenComponent, setChoosenComponent] = useState()
 
@@ -61,13 +68,13 @@ const AddNewComponent: React.FC<Props> = ({
   }
 
   return (
-    <div className='main-wrapper'>
+    <div>
       {
         choosenComponentStage === "choosing" ? <>
           <div className="add-section-modal-overlay">
             <div className="add-section-modal">
               <div className="add-section-modal-header">
-                <h3>Add New Section</h3>
+                <h3>Add New Component</h3>
                 <IoMdClose onClick={() => cancel()} size={24} color='white' className="add-section-modal-header-button" />
               </div>
               <div className="add-section-modal-new-component">
@@ -92,12 +99,20 @@ const AddNewComponent: React.FC<Props> = ({
                     <GiAchievement size={30} />
                     <span>Achievements</span>
                   </div>
+                  <div onClick={() => { setTypeOfNewSection("Videos") }} tabIndex={0}>
+                    <BiMoviePlay size={30} />
+                    <span>Videos</span>
+                  </div>
+                  <div onClick={() => { setTypeOfNewSection("Musics") }} tabIndex={0}>
+                    <BsMusicNoteBeamed size={30} />
+                    <span>Musics</span>
+                  </div>
                 </div>
                 <div className="add-section-modal-content">
                   {typeOfNewSection === "Text" ? <>
                     {textComponentsArray.map((section, index) => {
                       return (
-                        <img key={index} src={section.props.previewImg} className={"preview-section-img"} onClick={() => { setChoosenComponentStage("componentChoosen"), chooseComponent(textComponentsArray, index), addNewComponent() }} alt="Preview of Component" />
+                        <img key={index} src={section.props.previewImg} className={"preview-section-img"} onClick={() => { chooseComponent(textComponentsArray, index), setChoosenComponentStage("componentChoosen"), addNewComponent() }} alt="Preview of Component" />
                       )
                     })}
                   </>
@@ -105,30 +120,43 @@ const AddNewComponent: React.FC<Props> = ({
                     typeOfNewSection === "Projects" ? <>
                       {projectsComponentsArray.map((section, index) => {
                         return (
-                          <img key={index} src={section.props.previewImg} className={"preview-section-img"} onClick={() => { setChoosenComponentStage("componentChoosen"), chooseComponent(projectsComponentsArray, index), addNewComponent() }} alt="Preview of Component" />
+                          <img key={index} src={section.props.previewImg} className={"preview-section-img"} onClick={() => { chooseComponent(projectsComponentsArray, index), setChoosenComponentStage("componentChoosen"), addNewComponent() }} alt="Preview of Component" />
                         )
                       })}
                     </>
                       :
                       typeOfNewSection === "Galery" ? <>
-                        <div onClick={() => { setChoosenComponentStage("EditableTitle"), addNewComponent() }}>Component Galery</div>
+                        <div>Component Galery</div>
+                        <div>Component Galery</div>
+                        <div>Component Galery</div>
                         <div>Component Galery</div>
                       </>
                         :
                         typeOfNewSection === "GitHub" ? <>
-                          <div onClick={() => { setChoosenComponentStage("EditableTitle"), addNewComponent() }}>Component GitHub</div>
                           <div>Component GitHub</div>
                           <div>Component GitHub</div>
                           <div>Component GitHub</div>
                         </>
                           :
                           typeOfNewSection === "Achievements" ? <>
-                            <div onClick={() => { setChoosenComponentStage("EditableTitle"), addNewComponent() }}>Component Achievements</div>
+                            <div>Component Achievements</div>
                             <div>Component Achievements</div>
                             <div>Component Achievements</div>
                           </>
                             :
-                            "error on type name"
+                            typeOfNewSection === "Videos" ? <>
+                              <div>Component Videos</div>
+                              <div>Component Videos</div>
+                              <div>Component Videos</div>
+                            </>
+                              :
+                              typeOfNewSection === "Musics" ? <>
+                                <div>Component Musics</div>
+                                <div>Component Musics</div>
+                                <div>Component Musics</div>
+                              </>
+                                :
+                                "error on type name"
                   }
                 </div>
               </div>

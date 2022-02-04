@@ -3,8 +3,9 @@ import React from "react";
 import './Projects1.css'
 
 import { CgExtensionRemove } from 'react-icons/cg'
-import previewComponentImg from "../../../assets/previewComponents/PreviewProject1.png"
-import previewComponentGif from "../../../assets/previewComponents/PreviewProject1Gif.png"
+
+import ProjectExamplePreview from '../../../assets/PreviewProjectLayout1_525x520.png'
+import EditableTitle from '../../../components/TextComponents/EditableTitle/EditableTitle'
 
 type Props = {
   previewImg: string;
@@ -16,17 +17,15 @@ type Props = {
 
 const Projects1: React.FC<Props> = ({ deleteComponent, isDeletable = false }) => {
 
-  const focusOnElementById = (elementId: string) => {
-    if (elementId) {
-      // @ts-ignore: Object is possibly 'null' error.
-      document.getElementById(elementId).focus();
-    }
-  }
-
   return (
-    <div>
-      <CgExtensionRemove className="edit-tools-title-delete-button" onClick={() => deleteComponent()} size={28} />
-      1
+    <div className="project-component_1">
+      <div className="project-component_1-description">
+        <EditableTitle isDeletable={false} deleteComponent={() => console.log("test")} defaultText="Lorem Ipsum" textAlign='left' />
+        {/* <h2>Lorem ipusum</h2> */}
+        <p contentEditable={true} spellCheck={false} suppressContentEditableWarning >dolor sit amet consectetur, adipisicing elit. Architecto, expedita molestiae. Unde non nihil velit</p>
+      </div>
+      <img src={ProjectExamplePreview} alt="example" />
+      <CgExtensionRemove className="project-component_1-delete-button" onClick={() => deleteComponent()} size={50} />
     </div>
   );
 };

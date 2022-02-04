@@ -14,13 +14,6 @@ type Props = {
 
 const Projects2: React.FC<Props> = ({ deleteComponent, isDeletable = false }) => {
 
-  const focusOnElementById = (elementId: string) => {
-    if (elementId) {
-      // @ts-ignore: Object is possibly 'null' error.
-      document.getElementById(elementId).focus();
-    }
-  }
-
   return (
     <div>
       <CgExtensionRemove className="edit-tools-title-delete-button" onClick={() => deleteComponent()} size={28} />

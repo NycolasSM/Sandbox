@@ -5,7 +5,6 @@
   justify-content: flex-start;
   margin: 0 auto;
   padding: 10px 0px;
-  min-height: 350px;
   width: 100%;
   transition: all ease 0.2s;
   outline: solid 1px transparent;
@@ -38,12 +37,12 @@
   display: none;
 }
 
-.section-preview-button-input:checked ~ .section-preview-button-icon  {
+.section-preview-button-input:checked~.section-preview-button-icon {
   opacity: 0.4;
   padding-left: 4px;
 }
 
-.section-preview-button-input:hover ~ .section-preview-button-label {
+.section-preview-button-input:hover~.section-preview-button-label {
   opacity: 1;
 }
 
@@ -85,7 +84,7 @@
   border-radius: 5px;
 }
 
-.section-configuration-button{
+.section-configuration-button {
   opacity: 0.5;
   transition: all ease 0.1s;
 }
@@ -102,7 +101,7 @@
   opacity: 1;
 }
 
-.section-configuration-button:focus-within ~ .options-section-buttons-container{
+.section-configuration-button:focus-within~.options-section-buttons-container {
   transform: translateX(0);
 }
 
@@ -116,7 +115,7 @@
   width: 134px;
   position: absolute;
   background: #ffffff2c;
-  filter:blur(1px);
+  filter: blur(1px);
   z-index: -1;
 }
 
@@ -157,7 +156,7 @@
   opacity: 1;
 }
 
-.add-section:hover > .add-section-button {
+.add-section:hover>.add-section-button {
   cursor: pointer;
   opacity: 1;
 }
@@ -189,7 +188,7 @@
   cursor: pointer;
 }
 
-.add-component-button:hover ~ .add-component-button-label{
+.add-component-button:hover~.add-component-button-label {
   opacity: 1;
 }
 
@@ -198,4 +197,22 @@
   transition: all ease 0.2s;
   color: gray;
   font-size: 0.9rem;
+}
+
+.options-section-configuration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 200px;
+  background-color: gray;
+  border-radius: 4px;
+
+}
+
+.options-section-configuration-content-align {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

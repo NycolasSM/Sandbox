@@ -6,6 +6,7 @@ import { CgExtensionRemove } from 'react-icons/cg'
 
 type Props = {
   defaultText?: string,
+  defaultColor?: string,
   defaultFontSize?: number,
   defaultfontColor?: string,
   textAlign?: string,
@@ -75,7 +76,7 @@ const EditableTitle: React.FC<Props> = ({ deleteComponent, isDeletable = false, 
           fontStyle: `${fontStyle}`,
           textDecoration: `${textDecoration}`,
           color: `${fontColor}`,
-          textAlign: `${alignText}` as "center"
+          textAlign: `${alignText}` as "center",
         }} />
       <div className="edit-tools-title" id="editTool" tabIndex={-1}>
         <button style={{ fontWeight: "bold" }} onClick={() => toggleFontBold()} >B</button>

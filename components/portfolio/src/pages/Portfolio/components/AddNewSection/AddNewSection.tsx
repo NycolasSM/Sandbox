@@ -27,6 +27,12 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
 
   const [isSectionEditable, setIsSectionEditable] = useState(true)
 
+  const [sectionbackgroundColor, setSectionBackgroundColor] = useState("")
+  const [sectionBorderRadius, setSectionBorderRadius] = useState("")
+  const [alignContent, setAlignContent] = useState("center")
+
+  const [showSectionConfiguration, setShowSectionConfiguration] = useState(false)
+
   const createNewComponent = () => {
     setNumberOfComponents(numberOfComponents + 1)
     const copyPostArray = Object.assign([], componentArray)
@@ -60,11 +66,17 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
         ""
       }
       {addSection === "sectionAdded" ?
-        <section className="new-section" style={{outline: `${isSectionEditable? "" : "transparent 1px solid"}`}} id="newSection" >
+        <section className="new-section" id="newSection" style={{
+          outline: `${isSectionEditable ? "" : "transparent 1px solid"}`,
+          minHeight: `${isSectionEditable ? "350px" : "50px"}`,
+          backgroundColor: sectionbackgroundColor,
+          borderRadius: `${sectionBorderRadius}px`,
+          alignItems: alignContent
+        }}>
           <label className="section-preview-button">
             <input type="checkbox" className="section-preview-button-input" onClick={() => setIsSectionEditable(!isSectionEditable)} name="section-preview" id="sectionPreviewButton" />
-            {isSectionEditable? <MdOutlinePreview className="section-preview-button-icon" size={30}/> : <FaRegEdit className="section-preview-button-icon" size={26} />}
-            <span className="section-preview-button-label">{isSectionEditable? "Preview?" : "Edit?"}</span>
+            {isSectionEditable ? <MdOutlinePreview className="section-preview-button-icon" size={30} /> : <FaRegEdit className="section-preview-button-icon" size={26} />}
+            <span className="section-preview-button-label">{isSectionEditable ? "Preview?" : "Edit?"}</span>
           </label>
           {isSectionEditable ? <>
             <div className="section-configuration">
@@ -72,12 +84,33 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
               <div className="options-section-buttons-container">
                 <div className="section-configuration-blur"></div>
                 <div className="options-section-buttons">
-                  <FaRegEdit size={25} />
+                  <FaRegEdit onClick={() => setShowSectionConfiguration(!showSectionConfiguration)} size={25} tabIndex={0} />
                   <AiOutlineArrowUp size={25} />
                   <AiOutlineArrowDown size={25} />
                   <BsTrash onClick={() => deleteSection()} size={25} />
                 </div>
               </div>
+              {
+                showSectionConfiguration ? <>
+                  <div className="options-section-configuration">
+                    <div>
+                      <label htmlFor="sectionBackgroundColor">Background Color</label>
+                      <input type="color" onChange={(e) => setSectionBackgroundColor(e.target.value)} name="sectionBackgroundColor" id="sectionBackgroundColor" />
+                    </div>
+                    <div>
+                      <label htmlFor="sectionBorderRadius">Border Radius</label>
+                      <input type="range" onChange={(e) => setSectionBorderRadius(e.target.value)} name="sectionBorderRadius" id="sectionBorderRadius" />
+                    </div>
+                    <div className="options-section-configuration-content-align">
+                      <button onClick={() => setAlignContent("flex-start")}>left</button>
+                      <button onClick={() => setAlignContent("center")}>center</button>
+                      <button onClick={() => setAlignContent("flex-end")}>right</button>
+                    </div>
+                  </div>
+                </>
+                  :
+                  ""
+              }
             </div>
           </>
             :
