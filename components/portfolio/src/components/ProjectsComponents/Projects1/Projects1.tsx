@@ -24,7 +24,7 @@ const Projects1: React.FC<Props> = ({ deleteComponent, isDeletable = false }) =>
         {/* <h2>Lorem ipusum</h2> */}
         <p contentEditable={true} spellCheck={false} suppressContentEditableWarning ></p>
       </div>
-      <img src={ProjectExamplePreview} alt="example" />
+      <img src={ProjectExamplePreview} onClick={() => console.log("asd")} alt="example" />
       <CgExtensionRemove className="project-component_1-delete-button" onClick={() => deleteComponent()} size={50} />
     </div>
   );

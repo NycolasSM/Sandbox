@@ -41,8 +41,7 @@
   opacity: 1;
   transition: all ease 0.1s;
   position: absolute;
-  padding-left: 500px;
-  padding-top: 580px;
+  left: 1%;
 }
 
 .project-component_1-delete-button:hover {

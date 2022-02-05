@@ -84,7 +84,7 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
               <div className="options-section-buttons-container">
                 <div className="section-configuration-blur"></div>
                 <div className="options-section-buttons">
-                  <FaRegEdit onClick={() => setShowSectionConfiguration(!showSectionConfiguration)} style={{backgroundColor: `${showSectionConfiguration? "gray" : ""}` }} size={25} tabIndex={0} />
+                  <FaRegEdit onClick={() => setShowSectionConfiguration(!showSectionConfiguration)} style={{ backgroundColor: `${showSectionConfiguration ? "gray" : ""}` }} size={25} tabIndex={0} />
                   <AiOutlineArrowUp size={25} />
                   <AiOutlineArrowDown size={25} />
                   <BsTrash onClick={() => deleteSection()} size={25} />
@@ -96,10 +96,6 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
                     <div>
                       <label htmlFor="sectionBackgroundColor">Background Color</label>
                       <input type="color" onChange={(e) => setSectionBackgroundColor(e.target.value)} name="sectionBackgroundColor" id="sectionBackgroundColor" />
-                    </div>
-                    <div>
-                      <label htmlFor="sectionBorderRadius">Border Radius</label>
-                      <input type="range" onChange={(e) => setSectionBorderRadius(e.target.value)} name="sectionBorderRadius" id="sectionBorderRadius" />
                     </div>
                     <div className="options-section-configuration-content-align">
                       <button onClick={() => setAlignContent("flex-start")}>left</button>
