@@ -2,12 +2,14 @@ import React from 'react';
 
 import "./Layout1.css"
 
-
-
 import EditableTitle from '../../../../../../../../components/TextComponents/EditableTitle/EditableTitle';
 import ProfileImg from '../../../../../ProfileImg/ProfileImg';
 
-const Layout1: React.FC = () => {
+type Props = {
+  previewImg?: string;
+}
+
+const Layout1: React.FC<Props> = () => {
 
   return (
     <section className='portfolio-header_layout1'>

@@ -6,10 +6,10 @@ import EditableTitle from '../../../../../../../../components/TextComponents/Edi
 import ProfileImg from '../../../../../ProfileImg/ProfileImg';
 
 type Props = {
-  choseLayout: () => void
+  previewImg?: string;
 }
 
-const Layout2: React.FC<Props> = ({ choseLayout, }) => {
+const Layout2: React.FC<Props> = () => {
   return (
     <section className='portfolio-header_layout2'>
       <div className='portfolio-header-container_layout2'>

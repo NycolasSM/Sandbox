@@ -32,6 +32,10 @@
   width: 400px;
 }
 
+.project-component_1-description p:empty::before {
+  content: "dolor sit amet consectetur, adipisicing elit. Architecto, expedita molestiae. Unde non nihil velit";
+}
+
 .project-component_1-delete-button {
   color: #fd2626de;
   opacity: 1;

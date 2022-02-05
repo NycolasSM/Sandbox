@@ -21,33 +21,38 @@ const ChoosingLayout: React.FC<Props> = ({
 
   const [chosenLayout, setChosenLayoult] = useState("choosing")
 
-  const chooseLayout = (option: string) => {
-    setChosenLayoult(option)
+  const [headersLayoutArray, setHeadersLayoutArray] = useState([
+    <Layout1 previewImg={HeaderLayout1} />,
+    <Layout2 previewImg={HeaderLayout2} />
+  ])
+
+  const [choosenComponent, setChoosenComponent] = useState()
+
+  function chooseComponent(array: any, index: number) {
+    setChoosenComponent(array[index])
   }
+
 
   return (
     <div className='main-wrapper'>
       {chosenLayout === "choosing" ? <>
         <h3 className='portfolio-chosing-label'>Choose Header Layout</h3>
         <div className='portfolio-choosing'>
-          <img onClick={() => { chooseLayout("layout1"), setIsChoosenHeaderLayout() }} src={HeaderLayout1} alt="layout" />
-          <img onClick={() => { chooseLayout("layout2"), setIsChoosenHeaderLayout() }} src={HeaderLayout2} alt="layout" />
+          {headersLayoutArray.map((section, index) => {
+            return (
+              <img key={index} src={section.props.previewImg} className={"preview-section-img"} onClick={() => { chooseComponent(headersLayoutArray, index), setChosenLayoult("layoutChoose"), setIsChoosenHeaderLayout() }} alt="Preview of Component" />
+            )
+          })}
         </div>
       </>
         :
-        chosenLayout === "layout1" ? <>
+        chosenLayout === "layoutChoose" ? <>
           <FaExchangeAlt className='portfolio-header-change-layout-button' onClick={() => setChosenLayoult("choosing")} size={30} />
           <label className='portfolio-header-change-layout-button-label' htmlFor="changeHeaderButton">Change Header</label>
-          <Layout1 />
+          {choosenComponent}
         </>
           :
-          chosenLayout === "layout2" ? <>
-            <FaExchangeAlt className='portfolio-header-change-layout-button' id='changeHeaderButton' onClick={() => setChosenLayoult("choosing")} size={30} />
-            <label className='portfolio-header-change-layout-button-label' htmlFor="changeHeaderButton">Change Header</label>
-            <Layout2 choseLayout={() => setChosenLayoult("choosing")} />
-          </>
-            :
-            "esse layout nao existe"
+          ""
       }
     </div >
   );

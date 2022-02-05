@@ -22,7 +22,7 @@ const Projects1: React.FC<Props> = ({ deleteComponent, isDeletable = false }) =>
       <div className="project-component_1-description">
         <EditableTitle isDeletable={false} deleteComponent={() => console.log("test")} defaultText="Lorem Ipsum" textAlign='left' />
         {/* <h2>Lorem ipusum</h2> */}
-        <p contentEditable={true} spellCheck={false} suppressContentEditableWarning >dolor sit amet consectetur, adipisicing elit. Architecto, expedita molestiae. Unde non nihil velit</p>
+        <p contentEditable={true} spellCheck={false} suppressContentEditableWarning ></p>
       </div>
       <img src={ProjectExamplePreview} alt="example" />
       <CgExtensionRemove className="project-component_1-delete-button" onClick={() => deleteComponent()} size={50} />

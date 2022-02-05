@@ -84,7 +84,7 @@ const AddNewSection: React.FC<Props> = ({ deleteSection, addNewSection }) => {
               <div className="options-section-buttons-container">
                 <div className="section-configuration-blur"></div>
                 <div className="options-section-buttons">
-                  <FaRegEdit onClick={() => setShowSectionConfiguration(!showSectionConfiguration)} size={25} tabIndex={0} />
+                  <FaRegEdit onClick={() => setShowSectionConfiguration(!showSectionConfiguration)} style={{backgroundColor: `${showSectionConfiguration? "gray" : ""}` }} size={25} tabIndex={0} />
                   <AiOutlineArrowUp size={25} />
                   <AiOutlineArrowDown size={25} />
                   <BsTrash onClick={() => deleteSection()} size={25} />
